@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg2x41kejb6t1"]
+
+[ext_resource type="Shader" uid="uid://dy0g0oog6pf0j" path="res://shader/pixels.tres" id="1_7m1gq"]
+[ext_resource type="Texture2D" uid="uid://vtmbj83dctsa" path="res://icon.svg" id="2_m604m"]
+[ext_resource type="PackedScene" uid="uid://dyhhwcea7ifpf" path="res://tree_m.tscn" id="3_isd7r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_undcm"]
+size = Vector2(50, 50)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uo6k"]
+shader = ExtResource("1_7m1gq")
+shader_parameter/Pixels = 0.0
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_undcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6uo6k")
+scale = Vector2(15, 8.4375)
+texture = ExtResource("2_m604m")
+centered = false
+
+[node name="Tree_M" parent="." instance=ExtResource("3_isd7r")]
+
+[editable path="Tree_M"]

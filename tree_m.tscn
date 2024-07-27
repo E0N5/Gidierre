@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyhhwcea7ifpf"]
+
+[ext_resource type="PackedScene" uid="uid://iqdgyr4ydkuv" path="res://Tree_M.glb" id="1_mu8ps"]
+[ext_resource type="Shader" uid="uid://bf021mgn0txpr" path="res://shader/leaves.tres" id="2_qawcc"]
+[ext_resource type="Texture2D" uid="uid://4dnbbrioev28" path="res://tree_Opacity.png" id="3_w21ob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nep4c"]
+render_priority = 0
+shader = ExtResource("2_qawcc")
+shader_parameter/Vertex_Scale = 2.0
+shader_parameter/Leaves_Color = Color(1e-06, 0.360331, 0, 1)
+shader_parameter/Alpha_Threshold = 0.3
+shader_parameter/Alpha_Texture = ExtResource("3_w21ob")
+
+[node name="Tree_M" instance=ExtResource("1_mu8ps")]
+
+[node name="tree" parent="." index="0"]
+surface_material_override/1 = SubResource("ShaderMaterial_nep4c")
